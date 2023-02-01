@@ -1,0 +1,89 @@
+
+.logo {
+    width: 10%;
+    height: auto;
+}
+
+.divider {
+    height: 2px;
+    background: black;
+    margin: 10px;
+}
+
+.product-gallery {
+    margin: auto;
+    width: 60%;
+}
+
+.product-gallery:hover {
+    background: yellow;
+}
+
+.product-img {
+    border: 3px solid black;
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-details{
+  text-align: middle;
+  background: red;
+}
+
+/* NEED TO FIX  THIS */
+p {
+    color: black;
+    margin-left: 20%;
+    text-align: left;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+    background: orange;
+  }
+
+h4 {
+    text-align: center;
+
+}
+
+nav {
+    text-align: center;
+}
+
+.product-detail-p {
+    width: 30%;
+
+}
+
+  /* LINKS */
+
+a {
+    color: green;
+  }
+
+a:link {
+    color: green;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: green;
+  }
+  
+  a:hover {
+    background: yellow;
+    font-weight: bold;
+  }
+  
+  a:active {
+    font-weight: bold;
+  }
+
+  
