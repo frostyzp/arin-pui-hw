@@ -1,4 +1,8 @@
 
+body{
+  font: 16px Arial, sans-serif;
+}
+
 .logo {
     width: 10%;
     height: auto;
@@ -27,16 +31,27 @@
     margin-right: auto;
 }
 
-.product-details{
-  text-align: middle;
-  background: red;
+.product-details {
+  text-align: middle; 
 }
 
-/* NEED TO FIX  THIS */
 p {
     color: black;
     margin-left: 20%;
     text-align: left;
+}
+
+sub {
+  text-align: middle; 
+  margin: 30%;
+}
+
+select {
+    margin-left: 20%;
+}
+
+#shopping-product-details {
+  text-align: middle;
 }
 
 .center {
@@ -44,13 +59,16 @@ p {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-
-    background: orange;
   }
 
-h4 {
+h3 {
     text-align: center;
+}
 
+h4 {
+    margin-top: 80px;
+    font-size: 18px;
+    text-align: center;
 }
 
 nav {
@@ -58,15 +76,46 @@ nav {
 }
 
 .product-detail-p {
-    width: 30%;
-
+    width: 50%;
 }
+
+
+.add-cart {
+  text-align: center;
+}
+
+.add-cart-child {
+  display: inline-block;
+  padding: 12px;
+}
+
+  /* BUTTONS */
+  .btn {
+    border: 2px solid black;
+    background-color: yellow;
+    padding: 8px 8px;
+    display: inline-block;
+  }
+
+  .btn:hover {
+    cursor: pointer;
+  }
+
 
   /* LINKS */
 
+.navtitle:hover {
+  background: yellow;
+}
+
+.navtitle:active {
+  background: yellow;
+}
+
 a {
-    color: green;
-  }
+  color: green;
+  font-weight: bold;
+}
 
 a:link {
     color: green;
@@ -76,14 +125,8 @@ a:link {
   a:visited {
     color: green;
   }
-  
-  a:hover {
-    background: yellow;
-    font-weight: bold;
-  }
+
   
   a:active {
     font-weight: bold;
   }
-
-  

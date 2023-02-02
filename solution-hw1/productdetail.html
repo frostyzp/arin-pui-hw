@@ -6,7 +6,7 @@
 
   <body>
 
-    <img class="logo" src="hw1 img/logo/logo-01.svg" alt="Website logo">
+    <a href="./index.html" ><img class="logo" src="hw1 img/logo/logo-01.svg" alt="Website logo"></a>
 
     <div class="divider"> </div>
 
@@ -14,42 +14,48 @@
 
     <nav>
       <div class="nav">
-          <a href="./index.html.html" >PRODUCT</a> <br>
-          <a href="./cart.html" >CART</a>
+          <a href="./index.html">PRODUCT</a> <br>
+          <a href="./cart.html">CART</a>
       </div>
     </nav>
 
+    <main>
+
     <h4> Original Cinnamon roll </h4>
       <img src="hw1 img/products/original-cinnamon-roll.jpg" class="product-img" alt="Cinnamon-roll">
-      <p class="product-detail-p">
-        Customize our delicious hand-made cinnamon roll to your liking! <br>
-      </p>
-
-
-      <p class="product-details"> Glazing </p>
-      <select name="glaze" id="glaze">
-        <option value="Keep-original">Keep original</option>
-        <option value="Sugar-milk">Sugar Milk</option>
-        <option value="Vanilla-milk">Vanilla Milk</option>
-        <option value="Double-chocolate">Double Chocolate</option>
-      </select>
+      <div class="center">
+        <p class="product-detail-p">
+          Customize our delicious hand-made cinnamon roll to your liking! <br>
+        </p>
+        <p class="product-details"> Glazing </p>
+        <select name="glaze" id="product-dropdown">
+          <option value="Keep-original">Keep original</option>
+          <option value="Sugar-milk">Sugar Milk</option>
+          <option value="Vanilla-milk">Vanilla Milk</option>
+          <option value="Double-chocolate">Double Chocolate</option>
+        </select>
 
         <p class="product-details"> Pack Size </p>
-        <select name="pack-size" id="pack-size">
+        <select name="pack-size" id="product-dropdown">
           <option value="1">Keep original</option>
           <option value="3">Sugar Milk</option>
           <option value="5">Vanilla Milk</option>
           <option value="7">Double Chocolate</option>
         </select>
 
-
         <div class="add-cart">
-          <h4> $2.49 </h4>
+          <div class="add-cart-child">
+            <h4> $2.49 </h4>
+          </div>
+          <div class="add-cart-child">
+            <button class="btn default">Add to Cart</button>
+          </div>
 
         </div>
-
+        </div>
 
     </div>  
+    </main>
 
   </body>
 </html>
