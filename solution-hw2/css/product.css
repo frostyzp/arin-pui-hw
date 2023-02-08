@@ -1,0 +1,48 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-gallery {
+      display: block;
+      margin: auto;
+  }
+  
+  .product-gallery:hover {
+      background: yellow;
+  }
+  
+  .product-img {
+      border: 3px solid black;
+      display: block;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .product-details {
+    margin-left: 20%;
+  }
+  
+  #product-dropdown {
+    min-width: 50%;
+  }
+  
+  p {
+      color: black;
+      text-align: left;
+      font-size: 14px;
+  }
+  
+  .product-page {
+    font-size: 18px;
+    width: 80%;
+  }
+  
+
+.product-detail-p {
+    width: 60%;
+    margin-left: 20%;
+
+}
+

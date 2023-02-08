@@ -1,0 +1,118 @@
+
+h1 {
+    text-align:center;
+  }
+
+body {
+  font: 16px Arial, sans-serif;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+.divider {
+    height: 2px;
+    background: black;
+    margin-top: 20px;
+}
+
+sub {
+  text-align: center;
+  margin-left: 35%
+}
+
+select {
+    margin-left: 20%;
+}
+
+#shopping-product-details {
+  text-align: center;
+}
+
+.center {
+    display: grid;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: green;
+  }
+
+h3 {
+    text-align: center;
+}
+
+div#banner {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.add-cart {
+  text-align: center;
+}
+
+.add-cart-child {
+  display: inline-block;
+  padding: 12px;
+}
+
+.align-center{
+  text-align: center
+}
+
+  /* BUTTONS */
+  .btn {
+    border: 2px solid black;
+    background-color: yellow;
+    padding: 8px 8px;
+    display: inline-block;
+  }
+
+  .btn:hover {
+    cursor: pointer;
+  }
+
+.nav {
+    display: flex;
+}
+
+.navtitle:hover {
+  background: yellow;
+}
+
+.navtitle:active {
+  background: yellow;
+}
+
+.nav-left {
+  flex-shrink: 0;
+  width: 40%;
+  background-color: blue;
+}
+
+.nav-right {
+  padding-top: 20px;
+  padding-left: 20px;
+  flex-grow: 1;
+  background-color: yellow;
+}
+
+a {
+  color: black;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: black;
+  }
+
+  
+  a:active {
+    font-weight: bold;
+  }
