@@ -72,13 +72,13 @@ function displayTotal() {
 for (let i = 0; i < glazesArray.length; i++){
     var option = document.createElement('option');
     option.text = glazesArray[i].glaze;
-    option.value = i; // Its value should be the index of the last element in allCars
+    option.value = i; 
     glazeElement.add(option);  
 }
 for (let i = 0; i < packArray.length; i++){
     var option = document.createElement('option');
     option.text = packArray[i].packSize;
-    option.value = i; // Its value should be the index of the last element in allCars
+    option.value = i;
     packElement.add(option);  
 }
 
