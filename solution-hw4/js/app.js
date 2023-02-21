@@ -23,7 +23,7 @@ headerElement.innerText = rollType +' Cinnamon Roll';
 
 // Update the image
 const rollImage = document.querySelector(".product-img");
-rollImage.src = 'hw2 img/products/' + rollType + '-cinnamon-roll.jpg';
+rollImage.src = 'img/products/' + rollType + '-cinnamon-roll.jpg';
 
 // Update the base price
 let basePrice = rolls[rollType].basePrice;
