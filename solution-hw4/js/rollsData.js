@@ -1,25 +1,25 @@
 const rolls = {
-    "Original": {
+    "original": {
         "basePrice": 2.49,
         "imageFile": "original-cinnamon-roll.jpg"
     },
-    "Apple": {
+    "apple": {
         "basePrice": 3.49,
         "imageFile": "apple-cinnamon-roll.jpg"
     },
-    "Raisin": {
+    "raisin": {
         "basePrice": 2.99,
         "imageFile": "raisin-cinnamon-roll.jpg"
     },
-    "Walnut": {
+    "walnut": {
         "basePrice": 3.49,
         "imageFile": "walnut-cinnamon-roll.jpg"
     },
-    "Double-Chocolate": {
+    "double-Chocolate": {
         "basePrice": 3.99,
         "imageFile": "double-chocolate-cinnamon-roll.jpg"
     },
-    "Strawberry": {
+    "strawberry": {
         "basePrice": 3.99,
         "imageFile": "strawberry-cinnamon-roll.jpg"
     }    
