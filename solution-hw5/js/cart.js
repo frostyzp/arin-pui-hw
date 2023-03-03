@@ -7,6 +7,7 @@ class Roll {
             this.size = packSize;
             this.basePrice = basePrice;
             this.element = null;
+            this.totalPrice = basePrice * packSize;
         }
     }
 
@@ -24,7 +25,6 @@ function addCart(rollType, rollGlazing, packSize, basePrice){
 // its replacing the current one
 function createElement(roll){
     const template = document.querySelector('#roll-cart-template');
-    console.log('template', template);
     const clone = template.content.cloneNode(true);
 
     // store a reference to the newly copied element
@@ -51,8 +51,9 @@ function updateElement(roll){
     const rollGlazing = roll.element.querySelector('.glazeElement');
     const rollSize = roll.element.querySelector('.sizeElement');
     const rollPrice = roll.element.querySelector('div#banner');
+    const rollTotalPrice = roll.element.querySelector('div#banner');
 
-    console.log('roll update', roll)
+    // update price so it accurately reflects content
 
     //update element properties on DOM
     rollImageElement.src = 'img/products/' + roll.type + '-cinnamon-roll.jpg'
@@ -60,11 +61,25 @@ function updateElement(roll){
     rollGlazing.innerText = "Glazing: " +roll.glazing;
     rollSize.innerText = "Pack Size: " +roll.size;
     rollPrice.innerText = roll.basePrice;
+    rollTotalPrice.innerText = '$' +roll.totalPrice;
 }
 
 function deleteRoll(roll){
     roll.element.remove();
     cart.delete(roll);
+    // make sure to update total price
+    displayTotal();
+}
+
+function displayTotal() {
+    let totalCalculation = 0;
+    for (const roll of cart){
+        // add total prices of roll w each roll in cart
+        totalCalculation += roll.totalPrice;
+    }
+    // update DOM and HTML
+    let totalElement = document.querySelector('.total-item-flex>#banner');
+    totalElement.innerText = '$' +totalCalculation;
 }
 
 // make roll objects
@@ -74,11 +89,9 @@ const rollThree = addCart("raisin", "Sugar Milk", 3, 2.99)
 const rollFour = addCart("apple", "Original", 3, 3.49)
 
 // loop through the set and create a DOM element for each Notecard object.
+// updates video accordingly
 for (const roll of cart){
     createElement(roll);
 }
 
-
-
-// div#banner -> total price (total-item-flex)
-// div#banner  -- in cart item flex
+displayTotal();
