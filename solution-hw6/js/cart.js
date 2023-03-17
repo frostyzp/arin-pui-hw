@@ -1,19 +1,30 @@
+
 // HANDLES CART PAGE - REMOVING, STORING, ADDING OF ITEMS
 
+const glazingPrices = {
+    "Keep Original" : 0.0,
+    "Sugar Milk" : 0.0,
+    "Vanilla Milk" : 0.50,
+    "Double Chocolate" : 1.50
+};
 
-// class Roll {
-//     constructor(rollType, rollGlazing, packSize, basePrice) {
-//             this.type = rollType;
-//             this.glazing = rollGlazing;
-//             this.glazingPrice = 5;
-//             this.size = packSize;
-//             this.basePrice = basePrice;
-//             this.element = null;
-//             this.totalPrice = basePrice * packSize + this.glazingPrice;
-//         }
-//     }
+const packPrices = {
+    "1" : 1, "3" : 3, "6" : 5, "12" : 10
+};
 
-// const cart = new Set();
+class Roll {
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+            this.type = rollType;
+            this.glazing = rollGlazing;
+            this.size = packSize;
+            this.basePrice = basePrice;
+            this.element = null;
+            this.totalPrice = Math.round((basePrice + glazingPrices[this.glazing] ) 
+            * packPrices[this.size] * 100) / 100;
+        }
+    }
+
+const cart = new Set();
 
 function addCart(rollType, rollGlazing, packSize, basePrice){
     const addRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
@@ -54,7 +65,6 @@ function updateElement(roll){
     const rollTitleElement = roll.element.querySelector('.titleElement');
     const rollGlazing = roll.element.querySelector('.glazeElement');
     const rollSize = roll.element.querySelector('.sizeElement');
-    const rollPrice = roll.element.querySelector('div#banner');
     const rollTotalPrice = roll.element.querySelector('div#banner');
 
     //update element properties on DOM
@@ -62,9 +72,7 @@ function updateElement(roll){
     rollTitleElement.innerText = roll.type[0].toUpperCase() + roll.type.slice(1) +' Cinnamon Roll';
     rollGlazing.innerText = "Glazing: " +roll.glazing;
     rollSize.innerText = "Pack Size: " +roll.size;
-    rollPrice.innerText = roll.basePrice;
     rollTotalPrice.innerText = '$' +roll.totalPrice;
-
 }
 
 function deleteRoll(roll){
@@ -73,7 +81,6 @@ function deleteRoll(roll){
     // make sure to update total price
     displayTotal();
     saveToLocalStorage();
-
 }
 
 function displayTotal() {
@@ -81,14 +88,12 @@ function displayTotal() {
     for (const roll of cart){
         // add total prices of roll w each roll in cart
         totalCalculation += roll.totalPrice;
-        console.log(roll.glazing);  
         // rounding to two decimal places
         totalCalculation = Math.round(totalCalculation * 100) / 100;
     }
     // update DOM and HTML
     let totalElement = document.querySelector('.total-item-flex>#banner');
     totalElement.innerText = '$' +totalCalculation;
-
 }
 
 // ###### DATA STORAGE ########
@@ -116,7 +121,6 @@ function saveToLocalStorage() {
     for (const rollData of cartArray) {
         const roll = addCart(rollData.type, rollData.glazing,
             rollData.size, rollData.basePrice);
-        console.log(rollData.glazing)
         createElement(roll);
         }
     console.log('Retrieved cart Array', cartArray);
@@ -130,9 +134,5 @@ if (localStorage.getItem('storedCart') != null) {
 
 // updates the total price
 displayTotal();
-
-
-
-
 
 

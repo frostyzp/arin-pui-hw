@@ -3,6 +3,46 @@
 // If no cart exists in storage, create an empty cart
 const cart = new Set();
 
+// store options for dropdown
+const glazesArray = [
+    {
+        glaze: 'Keep Original',
+        price: 0,
+    },
+    {
+        glaze: 'Sugar Milk',
+        price: 0,
+    },
+    {
+        glaze: 'Vanilla Milk',
+        price: 0.50,
+    },
+    {
+        glaze: 'Double Chocolate',
+        price: 1.50,
+    }
+];
+
+const packArray = [
+    {
+        packSize: '1',
+        price: 1,
+    },
+    {
+        packSize: '3',
+        price: 3,
+    },
+    {
+        packSize: '6',
+        price: 5,
+    },
+    {
+        packSize: '12',
+        price: 10,
+    }
+];
+
+
 class Roll {
 constructor(rollType, rollGlazing, packSize, basePrice) {
         this.type = rollType;
@@ -33,44 +73,6 @@ rollImage.src = 'img/products/' + rollType + '-cinnamon-roll.jpg';
 
 // Update the base price
 let basePrice = rolls[rollType].basePrice;
-
-// store options for dropdown
-let glazesArray = [
-    {
-        glaze: 'Keep Original',
-        price: 0,
-    },
-    {
-        glaze: 'Sugar Milk',
-        price: 0,
-    },
-    {
-        glaze: 'Vanilla Milk',
-        price: 0.50,
-    },
-    {
-        glaze: 'Double Chocolate',
-        price: 1.50,
-    }
-];
-let packArray = [
-    {
-        packSize: '1',
-        price: 1,
-    },
-    {
-        packSize: '3',
-        price: 3,
-    },
-    {
-        packSize: '6',
-        price: 5,
-    },
-    {
-        packSize: '12',
-        price: 10,
-    }
-];
 
 function glazingChange(element) {
     // Convert the string value to an integer
@@ -169,4 +171,3 @@ if (localStorage.getItem('storedCart') != null) {
         console.log('RETRIEVING FROM STORAGE!');
         retrieveFromLocalStorage();
       } 
-
