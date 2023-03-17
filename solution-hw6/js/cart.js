@@ -1,15 +1,19 @@
-const cart = new Set();
+// HANDLES CART PAGE - REMOVING, STORING, ADDING OF ITEMS
+
 
 class Roll {
     constructor(rollType, rollGlazing, packSize, basePrice) {
             this.type = rollType;
-            this.glazing =  rollGlazing;
+            this.glazing = rollGlazing;
             this.size = packSize;
             this.basePrice = basePrice;
             this.element = null;
             this.totalPrice = basePrice * packSize;
         }
     }
+
+  const cart = new Set();
+
 
 function addCart(rollType, rollGlazing, packSize, basePrice){
     const addRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
@@ -20,6 +24,8 @@ function addCart(rollType, rollGlazing, packSize, basePrice){
 }
 
 // ADDING TO CART, DELETING ITEMS // 
+// const rollOn = addCart("original", "Sugar Milk", 1, 2.49);
+
 
 // need to create a new element to be used, rn 
 // its replacing the current one
@@ -44,6 +50,7 @@ function createElement(roll){
 
 }
 
+
 function updateElement(roll){
     //get references to the elements from DOM
     const rollImageElement = roll.element.querySelector('.product-img');
@@ -62,6 +69,7 @@ function updateElement(roll){
     rollSize.innerText = "Pack Size: " +roll.size;
     rollPrice.innerText = roll.basePrice;
     rollTotalPrice.innerText = '$' +roll.totalPrice;
+
 }
 
 function deleteRoll(roll){
@@ -69,6 +77,8 @@ function deleteRoll(roll){
     cart.delete(roll);
     // make sure to update total price
     displayTotal();
+    saveToLocalStorage();
+
 }
 
 function displayTotal() {
@@ -76,22 +86,56 @@ function displayTotal() {
     for (const roll of cart){
         // add total prices of roll w each roll in cart
         totalCalculation += roll.totalPrice;
+        // rounding to two decimal places
+        totalCalculation = Math.round(totalCalculation * 100) / 100;
     }
     // update DOM and HTML
     let totalElement = document.querySelector('.total-item-flex>#banner');
     totalElement.innerText = '$' +totalCalculation;
+
 }
 
-// make roll objects
-const rollOn = addCart("original", "Sugar Milk", 1, 2.49)
-const rollTwo = addCart("walnut", "Vanilla Milk", 12, 3.49)
-const rollThree = addCart("raisin", "Sugar Milk", 3, 2.99)
-const rollFour = addCart("apple", "Original", 3, 3.49)
+// ###### DATA STORAGE ########
+function saveToLocalStorage() {
+    const cartArray = Array.from(cart);
+    console.log('array', cartArray);
 
-// loop through the set and create a DOM element for each Notecard object.
-// updates video accordingly
-for (const roll of cart){
-    createElement(roll);
+    // string of text is something we can save!
+    const cartArrayString = JSON.stringify(cartArray);
+    // console.log('cartArrString', cartArrayString);
+
+    // set item to save text, as local storage
+    localStorage.setItem('storedCart', cartArrayString);
+  }
+
+
+  function retrieveFromLocalStorage() {
+    const cartArrayString = localStorage.getItem('storedCart');
+    // console.log('cartArrayString', cartArrayString)
+
+    // turn string of text BACK INTO a js array
+    const cartArray = JSON.parse(cartArrayString);
+
+    // for each object, create a new object to repopulate the page
+    for (const rollData of cartArray) {
+        const roll = addCart(rollData.type, rollData.glazing,
+            rollData.size, rollData.basePrice);
+        createElement(roll);
+        }
+    console.log('Retrieved cart Array', cartArray);
+
 }
 
+if (localStorage.getItem('storedCart') != null) {
+    console.log('Retrieving from local storage!');
+    retrieveFromLocalStorage();
+}
+
+// updates the total price
 displayTotal();
+
+
+
+
+
+

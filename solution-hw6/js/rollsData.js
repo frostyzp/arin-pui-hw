@@ -15,7 +15,7 @@ const rolls = {
         "basePrice": 3.49,
         "imageFile": "walnut-cinnamon-roll.jpg"
     },
-    "double-Chocolate": {
+    "double-chocolate": {
         "basePrice": 3.99,
         "imageFile": "double-chocolate-cinnamon-roll.jpg"
     },
