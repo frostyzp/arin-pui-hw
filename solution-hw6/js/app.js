@@ -10,6 +10,7 @@ constructor(rollType, rollGlazing, packSize, basePrice) {
         this.size = packSize;
         this.basePrice = basePrice;
         this.element = null;
+        this.glazingPrice = glazingPrice;
     }
 }
 

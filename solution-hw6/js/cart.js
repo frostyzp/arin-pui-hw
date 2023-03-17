@@ -1,19 +1,19 @@
 // HANDLES CART PAGE - REMOVING, STORING, ADDING OF ITEMS
 
 
-class Roll {
-    constructor(rollType, rollGlazing, packSize, basePrice) {
-            this.type = rollType;
-            this.glazing = rollGlazing;
-            this.size = packSize;
-            this.basePrice = basePrice;
-            this.element = null;
-            this.totalPrice = basePrice * packSize;
-        }
-    }
+// class Roll {
+//     constructor(rollType, rollGlazing, packSize, basePrice) {
+//             this.type = rollType;
+//             this.glazing = rollGlazing;
+//             this.glazingPrice = 5;
+//             this.size = packSize;
+//             this.basePrice = basePrice;
+//             this.element = null;
+//             this.totalPrice = basePrice * packSize + this.glazingPrice;
+//         }
+//     }
 
-  const cart = new Set();
-
+// const cart = new Set();
 
 function addCart(rollType, rollGlazing, packSize, basePrice){
     const addRoll = new Roll(rollType, rollGlazing, packSize, basePrice);
@@ -23,11 +23,8 @@ function addCart(rollType, rollGlazing, packSize, basePrice){
     return addRoll
 }
 
-// ADDING TO CART, DELETING ITEMS // 
-// const rollOn = addCart("original", "Sugar Milk", 1, 2.49);
-
-
-// need to create a new element to be used, rn 
+// ###### ADDING TO CART, DELETING ITEMS ########
+// need to create a new element to be used
 // its replacing the current one
 function createElement(roll){
     const template = document.querySelector('#roll-cart-template');
@@ -60,8 +57,6 @@ function updateElement(roll){
     const rollPrice = roll.element.querySelector('div#banner');
     const rollTotalPrice = roll.element.querySelector('div#banner');
 
-    // update price so it accurately reflects content
-
     //update element properties on DOM
     rollImageElement.src = 'img/products/' + roll.type + '-cinnamon-roll.jpg'
     rollTitleElement.innerText = roll.type[0].toUpperCase() + roll.type.slice(1) +' Cinnamon Roll';
@@ -86,6 +81,7 @@ function displayTotal() {
     for (const roll of cart){
         // add total prices of roll w each roll in cart
         totalCalculation += roll.totalPrice;
+        console.log(roll.glazing);  
         // rounding to two decimal places
         totalCalculation = Math.round(totalCalculation * 100) / 100;
     }
@@ -120,6 +116,7 @@ function saveToLocalStorage() {
     for (const rollData of cartArray) {
         const roll = addCart(rollData.type, rollData.glazing,
             rollData.size, rollData.basePrice);
+        console.log(rollData.glazing)
         createElement(roll);
         }
     console.log('Retrieved cart Array', cartArray);
