@@ -1,0 +1,19 @@
+
+
+
+
+/*This is the draggable card element*/
+.draggableCard {
+    height: 17.875rem;
+    width: 47.875rem;
+    border: solid 1px;
+    background-color: blue;
+    position: relative;
+}
+
+
+
+h1 {
+    font-size: 5rem;
+    
+}
