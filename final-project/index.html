@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rewind Back To The...</title>
+  <link rel="stylesheet" href="css/landing.css" /> 
+  <link rel="stylesheet" href="js/script.js" /> 
+
+</head>
+  <body>
+    <!-- Title -->
+    <h3> Rewind back to.. </h3>
+    <h1> THE WORLD OF CARTOONS </h1>
+
+    <div class="divider"> </div>
+
+    <!-- STATIC GIF HOW -->
+
+    <!-- Container for folders, hyperlinked -->
+    <a class="folder-link" href="./main.html">
+      <div class="folders"> 
+        <img src="assets/yellowFolder.png" width="350rem" 
+        height="350rem" alt="Yellow folder">
+        <div class="folderTag"> 
+          <p class="folderBody"> 2005s </p>
+        </div>
+      </div>
+    </a>
+
+    <div id="popup-content">
+      <p>Go back in time to the ...</p>
+    </div>
+
+    <a class="folder-link" href="./main.html">
+      <div class="folders"> 
+        <img src="assets/yellowFolder.png" width="350rem" 
+        height="350rem" alt="Yellow folder">
+        <div class="folderTag"> 
+          <p class="folderBody"> 2000s </p>
+        </div>
+      </div>
+    </a>
+
+  </body>
+
+    <!-- JQUERY CODE -->
+    <!-- Hover interaction, before clicking -->
+    <script src="js/jquery.js" type="text/javascript"></script>
+  
+    <script>
+      // Customizable { }
+      $(document).ready(function() {
+        $('.folders img').hover(function() {
+          $('#popup-content').fadeIn(300).show();
+        }, function() {
+          $('#popup-content').fadeOut(300).hide();
+        });
+      });
+    </script>

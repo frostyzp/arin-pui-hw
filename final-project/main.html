@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Main – Horizontal Scroll</title>
+    <link rel="stylesheet" href="css/main.css" /> 
+    <link rel="stylesheet" href="jqueryUI/jquery-ui.css" />
+    <link rel="stylesheet" href="jqueryUI/jquery-ui.structure.css" /> 
+    <link rel="stylesheet" href="jqueryUI/jquery-ui.theme.css" /> 
+    <script defer src="js/script.js"></script>
+
+
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <section class="nav">
+      <a href="./index.html"> <p> HOME </p> </a>
+      <p> 2000s </p>
+      <p> 2005s </p>
+      <p> 2010s </p>  
+    </section>
+    <hr>
+
+
+    <!-- Side, horizontal scrolling -->
+      <div class="container">
+        <!-- Sticky side bar -->
+
+        <div class= "sticky-sidebar">
+          <p> 2000s. </p>
+          Loren ibsum text here. Loren ibsum text here.
+        </div>
+
+        <!-- Each item -->
+        <div class="item" data-panelid="bleach">
+          <img class="show" src="bleach_2004.jpg" width=236px>
+          <img class="casette" src="assets/casette.png">
+        </div>
+          
+        <div class="item" data-panelid="bleach">
+          <img class="show" src="bleach_2004.jpg" width=236px>
+          <img class="casette" src="assets/casette.png">
+        </div>
+
+        <div class="item" data-panelid="bleach">
+          <img class="show" src="bleach_2004.jpg" width=236px>
+          <img class="casette" src="assets/casette.png">
+        </div>
+
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <!-- <div id="droppable" class="ui-widget-header">
+          <p>Drop here</p>
+        </div> -->
+
+
+      </div>
+
+    </div>
+   
+
+
+  </body>
+
+  <!-- JQUERY CODE -->
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="jqueryUI/jquery-ui.js" type="text/javascript"></script>
+
+  <script>
+    $(function() {
+
+    // Customizable { }
+    $(".item").draggable({
+      cursor: "grabbing",
+      opacity: 0.85,
+
+      grid: [20,20],
+      // axis: 'y',
+      containment: 'parent'
+    });
+    //.css({ color:'red'})
+
+    // $("#droppable").droppable({
+    $(".sticky-sidebar").droppable({
+
+      drop: function(event, ui) {
+        // gets the draggable object
+        var draggableElement = ui.draggable;
+        // extract panelId, variable from object
+        var panelId = draggableElement.attr('data-panelid');
+
+        $(this)
+        .addClass("ui-state-highlight") 
+          // Finds and manipulates 
+          .find( "p" )
+            // Updates text here based on what's been dropped
+            .html("Loading " +panelId +"...");
+
+      },
+
+      over: function(event, ui) {
+        $(this).removeClass("ui-state-highlight").
+        find("p")
+        .html("Not playing")
+        .css({
+          color: "green"
+        })
+      }
+
+
+    });
+  } );
+
+  </script>
+
+</html>
