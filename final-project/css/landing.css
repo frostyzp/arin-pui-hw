@@ -10,35 +10,43 @@
     flex-wrap: nowrap;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background-image: url("/websiteBg.png");
+    background-color: rgba(0, 0, 0, 0.95); /* Set the opacity to 50% */
     background-color: black;
+    background-image: url("/websiteDarkBg.jpg");
+    opacity: 0.8;
+    height: 100%;
     background-size: cover;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
 
     margin: 40px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
 }
 
 h1 {
     position: absolute;
-    width: 80vw;
-    left: 8rem;
-    top: 7rem;
-    
+    width: 90vw;
+    top: 3vw;
     font-weight: 500;
-    font-size: 8rem;
-    line-height: 8rem;
+    font-size: 7rem;
     
     color: #FCFF71;
 }
 
 h3 {
     position: absolute;
-    width: 700px;
-    height: 165px;
-    left: 78px;
-    top: 90px;
-
+    top: 1vw;
+  
     font-family: 'VCR OSD Mono';
     font-style: normal;
     font-weight: 400;

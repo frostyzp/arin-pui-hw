@@ -6,7 +6,7 @@ const shows = {
         "img": "bleach"
     },
     "teentitans": {
-        "title": "Teen Titans",
+        "title": "TEEN TITANS   ",
         "year": "original-cinnamon-roll.jpg",
         "description": "DESCRIPTION",
         "img": "teentitans"

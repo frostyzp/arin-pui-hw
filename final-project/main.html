@@ -29,25 +29,26 @@
         <!-- Sticky side bar -->
 
         <div class= "sticky-sidebar">
-          <div class="top-sidebar">
-            <h3> DROP SOMETHING HERE. </h3>
+          <div id="top-sidebar">
+            <h3> INSTRUCTIONS </h3>
           </div>
-          
-          <div id="popup-show">
-            <p> Drag here to learn more! </p>
+
+          <div id="sidebar-container">
+            <div id="sidebar-contents">
+              <p> Click, or Drag/Drop the shows here to learn more about them. </p>
+
+            </div>
+            <button type="button" class="mainButton">CLEAR SELECTION</button>
+
+
           </div>
 
 
-          <p> Would you like a hover or drag/drop interaction? </p>
-          <button type="button" class="mainButton">RESET PAGE</button>
-        </div>
+          </div>
 
         <div id = "show-list">
           <template id="show-template">
             <div class="item" data-year= "" data-description= "">
-            
-            <!-- <div class="item" dataPanelId=""> -->
-
               <img class="show" src="" width=236px>
             </div>
             </template>
@@ -68,103 +69,106 @@
 
   <script>
     $(function() {
-    // Customizable { }
-    $(".item").draggable({ revert: true });
-
-    $(".item").draggable({
-    
+    // Customizable { }   
+    $(".item").draggable({ 
       cursor: "grabbing",
       opacity: 0.85,
 
       grid: [50,50],
-      containment: 'window'
+      containment: 'window',
+      stop: function(event, ui) {
+      $(this).css({opacity: 1});
+      },
+
+      drag: function(event, ui) {
+      // Remove from all elements
+      $(".item").removeClass("item-active");
+      // Add to clicked element  
+      $(this).addClass("item-active");
+  }
+
     });
 
+    $(".item").draggable({ revert: true });
+
+
     // Hover Interaction
-    // $('.item').hover(function() {
-    //   $('#popup-show').fadeIn(300).show();
-    // }, function() {
-    //   $('#popup-show').fadeOut(300).hide();
+  $('.item').hover(function() {
+    $(this).css({opacity: 0.65});
+  }, function() {
+    $(this).css({opacity: 1});
 
-    // });
+  });
 
-    // Click Interaction
-    $('.item').click(function(event) {
+  // Click Interaction
+  $('.item').click(function(event) {
   // Get the data attributes from the draggable element
   var yearId = $(this).data('year');
   var descriptionId = $(this).data('description');
 
+  // remove from all elements
+  $(".item").removeClass("item-active");
+  // add to clicked element  
+  $(this).addClass("item-active");       
+
   // Update the sidebar and header text
   $(".sticky-sidebar")
-    .addClass("ui-state-highlight")
+    .addClass("ui-state")
     .find("p")
     .html(descriptionId);
 
   $("h3")
     .html(yearId);
+
+  $('mainButton')
+    .find(p)
+      .css("red");
 });
 
+  $('.mainButton').click(function(event) {
+    handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
 
-    $(".sticky-sidebar").droppable({
-      drop: function(event, ui) {
-        // gets the draggable object
-        var draggableElement = ui.draggable;
-        // extract panelId, variable from object
-          var yearId = draggableElement.data('year');
-          var descriptionId = draggableElement.data('description');
-
-        // prevent it from moving when scrolling
-        // $('.container').css('overflow', 'hidden');
-
-        $(this)
-        .addClass("ui-state-highlight") 
-          .find("p")
-            .html(descriptionId);
-
-        $("h3")
-          .html(yearId);
-
-        // upon click, reset the state and pos of the draggable object
-        $( ".mainButton" ).click( function() {
-          handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
-
-          $( ".item" ).animate({
-            left: 0,
-            top: 0
-          }, "slow");
-              
-
-        
-        });
-
-        $(".mainButton").css({
-          // background-color: "grey"
-          color: "white"
-        })
+    });
 
 
+  $(".sticky-sidebar").droppable({
+    
+    drop: function(event, ui) {
+      // gets the draggable object
+      var draggableElement = ui.draggable;
+      // extract panelId, variable from object
+      var yearId = draggableElement.data('year');
+      var descriptionId = draggableElement.data('description');
+
+      $(this)
+      .addClass("ui-state") 
+        .find("p")
+          .html(descriptionId);
+
+      $("h3")
+        .html(yearId);
       },
 
       over: function(event, ui) {
         handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
       }
+
     });
   } );
 
+
+
   function handleDropOver(event, ui, containerSelector, headerSelector, textSelector) {
   // Remove highlight class and update text color and content
-  $(this).removeClass("ui-state-highlight")
+  $(this).removeClass("ui-state")
          .find(textSelector)
-         .html("Drop me")
+         .html("DROP THE SHOW HERE!")
          .css({
-           color: "black"
+           color: "white"
          });
 
-  // Enable scrolling on the container
-  $(containerSelector).css('overflow', 'scroll');
-
   // Update the header text
-  $(headerSelector).html("DROP SOMETHING HERE");
+  $(headerSelector).html("LOADING SHOW CONTENT...");
 }
 
 
