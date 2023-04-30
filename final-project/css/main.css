@@ -109,7 +109,7 @@ hr {
   align-content: center;
   max-width: 35rem;
 
-  border: 0.2rem solid #dddddd;
+  border: 0.2rem solid grey;
 }
 
 .mainButton {
@@ -174,7 +174,7 @@ img.show{
 
 .item-active {
   background: white;
-  border: 0.2rem solid red;
+  border: 0.2rem solid white;
 }
 
 

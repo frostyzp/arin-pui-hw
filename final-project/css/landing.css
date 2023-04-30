@@ -23,37 +23,41 @@ body {
     background-size: cover;
     /* background-repeat: no-repeat; */
 
-    margin: 40px;
+    /* margin: 40px; */
     overflow: hidden;
 
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 
 }
 
+#title {
+    padding-top: 5rem;
+}
+
 h1 {
-    position: absolute;
+    /* position: absolute; */
     width: 90vw;
-    top: 3vw;
+    /* top: 3vw; */
     font-weight: 500;
     font-size: 7rem;
     
+    margin: 1rem;
     color: #FCFF71;
 }
 
 h3 {
-    position: absolute;
-    top: 1vw;
-  
+    /* position: absolute; */
+    /* top: 1vw; */
     font-family: 'VCR OSD Mono';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
-    line-height: 47px;
+    /* line-height: 47px; */
     text-transform: uppercase;
 
+    margin: 1rem;
     color: #FFFFFF;
 }
 
@@ -70,21 +74,13 @@ p .folderBody {
     cursor: pointer;
 }
 
-/* WHAT IS THE DIFFERENCE W # AND . // ALSO ID="" */
 .folders {
-    flex: auto;
-    padding: 20px;
-    float: right;
+    padding: 0.5rem;
 }
 
 .folderTag {
     /* position: absolute;  */
-    width: 174px;
-    height: 49.6px;
-    left: 661.85px;
-
-    margin: -8rem;
-    margin-left: -2rem;
+    padding: 1rem;
 
     background-color: white;
     opacity: 0.95;
@@ -97,9 +93,7 @@ p .folderBody {
 
 #popup-content {
     position: fixed;
-    top: 70%;
-    left: 15%;
-    transform: translate(-50%, -50%);
+    top: 60vh;
     display: none;
 
     background-color: #fff;
@@ -107,9 +101,9 @@ p .folderBody {
     padding: 0.5rem;
   }
 
-.divider {
-    margin-bottom: 30rem;
-}
+/* .divider {
+    margin-bottom: 2rem;
+} */
 
 
 
