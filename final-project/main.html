@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="jqueryUI/jquery-ui.css" />
     <link rel="stylesheet" href="jqueryUI/jquery-ui.structure.css" /> 
     <link rel="stylesheet" href="jqueryUI/jquery-ui.theme.css" /> 
+    <script defer src="js/shows.js"></script>
     <script defer src="js/script.js"></script>
 
 
@@ -15,48 +16,45 @@
     <!-- Nav bar -->
     <section class="nav">
       <a href="./index.html"> <p> HOME </p> </a>
-      <p> 2000s </p>
-      <p> 2005s </p>
-      <p> 2010s </p>  
+      <p> 2000s-2010s </p>
     </section>
     <hr>
 
+    <div id="popup-content">
+      <p>Go back in time to the ...</p>
+    </div>
 
     <!-- Side, horizontal scrolling -->
       <div class="container">
         <!-- Sticky side bar -->
 
         <div class= "sticky-sidebar">
-          <p> 2000s. </p>
-          Loren ibsum text here. Loren ibsum text here.
-        </div>
-
-        <!-- Each item -->
-        <div class="item" data-panelid="bleach">
-          <img class="show" src="bleach_2004.jpg" width=236px>
-          <img class="casette" src="assets/casette.png">
-        </div>
+          <div class="top-sidebar">
+            <h3> DROP SOMETHING HERE. </h3>
+          </div>
           
-        <div class="item" data-panelid="bleach">
-          <img class="show" src="bleach_2004.jpg" width=236px>
-          <img class="casette" src="assets/casette.png">
+          <div id="popup-show">
+            <p> Drag here to learn more! </p>
+          </div>
+
+
+          <p> Would you like a hover or drag/drop interaction? </p>
+          <button type="button" class="mainButton">RESET PAGE</button>
         </div>
 
-        <div class="item" data-panelid="bleach">
-          <img class="show" src="bleach_2004.jpg" width=236px>
-          <img class="casette" src="assets/casette.png">
+        <div id = "show-list">
+          <template id="show-template">
+            <div class="item" data-year= "" data-description= "">
+            
+            <!-- <div class="item" dataPanelId=""> -->
+
+              <img class="show" src="" width=236px>
+            </div>
+            </template>
+    
+          </div>
         </div>
 
-        <div class="item">Item 2</div>
-        <div class="item">Item 3</div>
-        <div class="item">Item 2</div>
-        <div class="item">Item 3</div>
-        <!-- <div id="droppable" class="ui-widget-header">
-          <p>Drop here</p>
-        </div> -->
-
-
-      </div>
 
     </div>
    
@@ -70,48 +68,105 @@
 
   <script>
     $(function() {
-
     // Customizable { }
+    $(".item").draggable({ revert: true });
+
     $(".item").draggable({
+    
       cursor: "grabbing",
       opacity: 0.85,
 
-      grid: [20,20],
-      // axis: 'y',
-      containment: 'parent'
+      grid: [50,50],
+      containment: 'window'
     });
-    //.css({ color:'red'})
 
-    // $("#droppable").droppable({
+    // Hover Interaction
+    // $('.item').hover(function() {
+    //   $('#popup-show').fadeIn(300).show();
+    // }, function() {
+    //   $('#popup-show').fadeOut(300).hide();
+
+    // });
+
+    // Click Interaction
+    $('.item').click(function(event) {
+  // Get the data attributes from the draggable element
+  var yearId = $(this).data('year');
+  var descriptionId = $(this).data('description');
+
+  // Update the sidebar and header text
+  $(".sticky-sidebar")
+    .addClass("ui-state-highlight")
+    .find("p")
+    .html(descriptionId);
+
+  $("h3")
+    .html(yearId);
+});
+
+
     $(".sticky-sidebar").droppable({
-
       drop: function(event, ui) {
         // gets the draggable object
         var draggableElement = ui.draggable;
         // extract panelId, variable from object
-        var panelId = draggableElement.attr('data-panelid');
+          var yearId = draggableElement.data('year');
+          var descriptionId = draggableElement.data('description');
+
+        // prevent it from moving when scrolling
+        // $('.container').css('overflow', 'hidden');
 
         $(this)
         .addClass("ui-state-highlight") 
-          // Finds and manipulates 
-          .find( "p" )
-            // Updates text here based on what's been dropped
-            .html("Loading " +panelId +"...");
+          .find("p")
+            .html(descriptionId);
+
+        $("h3")
+          .html(yearId);
+
+        // upon click, reset the state and pos of the draggable object
+        $( ".mainButton" ).click( function() {
+          handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
+
+          $( ".item" ).animate({
+            left: 0,
+            top: 0
+          }, "slow");
+              
+
+        
+        });
+
+        $(".mainButton").css({
+          // background-color: "grey"
+          color: "white"
+        })
+
 
       },
 
       over: function(event, ui) {
-        $(this).removeClass("ui-state-highlight").
-        find("p")
-        .html("Not playing")
-        .css({
-          color: "green"
-        })
+        handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
       }
-
-
     });
   } );
+
+  function handleDropOver(event, ui, containerSelector, headerSelector, textSelector) {
+  // Remove highlight class and update text color and content
+  $(this).removeClass("ui-state-highlight")
+         .find(textSelector)
+         .html("Drop me")
+         .css({
+           color: "black"
+         });
+
+  // Enable scrolling on the container
+  $(containerSelector).css('overflow', 'scroll');
+
+  // Update the header text
+  $(headerSelector).html("DROP SOMETHING HERE");
+}
+
 
   </script>
 
