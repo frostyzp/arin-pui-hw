@@ -15,8 +15,9 @@
   <body>
     <!-- Nav bar -->
     <section class="nav">
-      <a href="./index.html"> <p> HOME </p> </a>
-      <p> 2000s-2010s </p>
+      <a href="./index.html"> <h3> HOME </h3> </a>
+      <a href="./main.html" class="current-page"> <h3> ARCHIVE </h3> </a>
+      <a href="./about.html"> <h3> ABOUT </h3> </a>
     </section>
     <hr>
 
@@ -31,6 +32,7 @@
         <div class= "sticky-sidebar">
           <div id="top-sidebar">
             <h3> INSTRUCTIONS </h3>
+            <p class="description">HOW TO USE</p>
           </div>
 
           <div id="sidebar-container">
@@ -48,8 +50,8 @@
 
         <div id = "show-list">
           <template id="show-template">
-            <div class="item" data-year= "" data-description= "">
-              <img class="show" src="" width=236px>
+            <div class="showItem" data-year= "" data-description= "">
+              <img class="show" src="" alt="" style="float: left" width=236px>
             </div>
             </template>
     
@@ -70,7 +72,7 @@
   <script>
     $(function() {
     // Customizable { }   
-    $(".item").draggable({ 
+    $(".showItem").draggable({ 
       cursor: "grabbing",
       opacity: 0.85,
 
@@ -82,18 +84,18 @@
 
       drag: function(event, ui) {
       // Remove from all elements
-      $(".item").removeClass("item-active");
+      $(".showItem").removeClass("showItem-active");
       // Add to clicked element  
-      $(this).addClass("item-active");
+      $(this).addClass("showItem-active");
   }
 
     });
 
-    $(".item").draggable({ revert: true });
+    $(".showItem").draggable({ revert: true });
 
 
     // Hover Interaction
-  $('.item').hover(function() {
+  $('.showItem').hover(function() {
     $(this).css({opacity: 0.65});
   }, function() {
     $(this).css({opacity: 1});
@@ -101,15 +103,16 @@
   });
 
   // Click Interaction
-  $('.item').click(function(event) {
+  $('.showItem').click(function(event) {
   // Get the data attributes from the draggable element
+  var titleId = $(this).data('title');
   var yearId = $(this).data('year');
   var descriptionId = $(this).data('description');
 
   // remove from all elements
-  $(".item").removeClass("item-active");
+  $(".showItem").removeClass("showItem-active");
   // add to clicked element  
-  $(this).addClass("item-active");       
+  $(this).addClass("showItem-active");       
 
   // Update the sidebar and header text
   $(".sticky-sidebar")
@@ -117,12 +120,17 @@
     .find("p")
     .html(descriptionId);
 
-  $("h3")
+  $(".sticky-sidebar").find("h3")
+    .html(titleId);
+
+  $(".sticky-sidebar").find("p.description")
     .html(yearId);
 
-  $('mainButton')
-    .find(p)
-      .css("red");
+    // p class="description"
+
+  // $('mainButton')
+  //   .find(p)
+  //     .css("red");
 });
 
   $('.mainButton').click(function(event) {
@@ -137,6 +145,7 @@
       // gets the draggable object
       var draggableElement = ui.draggable;
       // extract panelId, variable from object
+      var titleId = draggableElement.data('title');
       var yearId = draggableElement.data('year');
       var descriptionId = draggableElement.data('description');
 
@@ -145,8 +154,9 @@
         .find("p")
           .html(descriptionId);
 
-      $("h3")
-        .html(yearId);
+      $(this)
+      .find("h3")
+        .html(titleId);
       },
 
       over: function(event, ui) {
@@ -168,7 +178,7 @@
          });
 
   // Update the header text
-  $(headerSelector).html("LOADING SHOW CONTENT...");
+  $this.find(headerSelector).html("LOADING SHOW CONTENT...");
 }
 
 

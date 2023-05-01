@@ -24,12 +24,35 @@ body {
 }
 
 p {
-    font-size: 1.25rem;
+    font-size: 1rem;
+}
+
+p.description {
+  color: rgb(216, 216, 216);
+  margin-top: -1rem;
 }
 
 h3 {
   font-size: 1.5rem
 }
+
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+
+}
+
+
+a.current-page {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
 
 .nav {
     display: flex;
@@ -97,19 +120,24 @@ hr {
 }
 
 
-
 /*Flex item, children are images*/
-.item {
+.showItem {
   width: 236.27px;
   height: 350.85px;
   background: linear-gradient(180deg, #C8C9CE 0%, #E0E0E0 100%);
   border-radius: 0.2rem;
-  background: grey;
+  background: CCCCCC;
   display: flex;
   align-content: center;
   max-width: 35rem;
 
-  border: 0.2rem solid grey;
+  border: 0.2rem solid #CCCCCC;
+}
+
+.showItem-active {
+  background: white;
+  border: 0.2rem solid white;
+  
 }
 
 .mainButton {
@@ -119,9 +147,12 @@ hr {
   width: 100%;
 }
 
-img.show{
-  z-index: 2;
+/* Adjust properties of alt text*/
+img {
+  color:black;
+  font-size: 0.85rem;
 }
+
 
 #draggable { 
   width: 250px; 
@@ -171,13 +202,6 @@ img.show{
   background: white;
   color: white;
 }
-
-.item-active {
-  background: white;
-  border: 0.2rem solid white;
-}
-
-
 
 
 ::-webkit-scrollbar {

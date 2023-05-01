@@ -34,7 +34,7 @@ for (const showItem of showSet) {
 function createElement(showItem){
   const template = document.querySelector('#show-template');
   const clone = template.content.cloneNode(true);
-  showItem.element = clone.querySelector('.item');
+  showItem.element = clone.querySelector('.showItem');
 
   const showListElement = document.querySelector('#show-list');
   showListElement.append(showItem.element);
@@ -46,9 +46,11 @@ function createElement(showItem){
 function updateElement(showItem){
     const showImgElement = showItem.element.querySelector('.show');
     showImgElement.src = 'assets/shows/' +showItem.img + '.jpg';
+    showImgElement.alt = 'COVER IMAGE OF ' +showItem.title 
 
     console.log('UPDATE / UPDATE', showItem.element)
-    showItem.element.dataset.year = showItem.title;
+    showItem.element.dataset.title = showItem.title;
+    showItem.element.dataset.year = showItem.year;
     showItem.element.dataset.description = showItem.description;
     // const newElement = document.createElement('p');
 }
