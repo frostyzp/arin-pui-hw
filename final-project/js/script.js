@@ -19,7 +19,6 @@ const container = document.getElementById('container');
 
 // CREATE OBJECTS FROM THE ARRAY (SHOWS)
   for (const showtest in shows) {
-    console.log("Created Objects", shows[showtest]);
     showObj = shows[showtest]
     addShows(showObj.title, showObj.year, showObj.creator, showObj.description, showObj.img);
   }
@@ -33,7 +32,6 @@ function addShows(title, year, creator, description, img){
 
 // CREATE DOM ELEMENTS FOR EACH ITEM
 for (const showItem of showSet) {
-  console.log('SHOWITEM', showItem);
   createElement(showItem);
 }
 
