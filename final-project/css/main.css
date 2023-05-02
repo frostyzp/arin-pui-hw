@@ -20,12 +20,15 @@ body {
     padding-right: 5rem;
     margin: 0;
 
-    background-image: url(/websiteDarkBg.jpg);
+    background-image: url(/assets/websiteDarkBg.jpg);
     opacity: 1;
     background-size: cover;
 
     margin: 40px;
     overflow: hidden;
+
+    min-height: 100%
+
 }
 
 p {
@@ -199,6 +202,8 @@ img {
   gap: 2rem;
   padding-left: 2rem;
   padding-top: 1rem;
+  min-height: 100%
+
 
 }
 
@@ -212,6 +217,7 @@ img {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+
 }
 
 #show-filter-container.p{
@@ -230,8 +236,6 @@ img {
   z-index: 1;
   background-color: #0244B4;
   box-shadow: inset  0 0 1px black;
-
-
 }
 
 .filter-chip {
