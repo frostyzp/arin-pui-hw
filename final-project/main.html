@@ -21,14 +21,9 @@
     </section>
     <hr>
 
-    <div id="popup-content">
-      <p>Go back in time to the ...</p>
-    </div>
-
     <!-- Side, horizontal scrolling -->
       <div class="container">
         <!-- Sticky side bar -->
-
         <div class= "sticky-sidebar">
           <div id="top-sidebar">
             <h3> INSTRUCTIONS </h3>
@@ -37,28 +32,31 @@
 
           <div id="sidebar-container">
             <div id="sidebar-contents">
-              <p> Click, or Drag/Drop the shows here to learn more about them. </p>
+              <p> CLICK OR DRAG/DROP THE SHOWS HERE TO LEARN MORE ABOUT THEM. </p>
 
             </div>
-            <button type="button" class="mainButton">CLEAR SELECTION</button>
-
-
-          </div>
-
-
-          </div>
-
-        <div id = "show-list">
-          <template id="show-template">
-            <div class="showItem" data-year= "" data-description= "">
-              <img class="show" src="" alt="" style="float: left" width=236px>
-            </div>
-            </template>
-    
+            <button type="button" class="mainButton">CLEAR SELETED SHOW</button>
           </div>
         </div>
 
+        <!-- Div that contains list of show -->
+        <div id="show-filter-container">
+          <div id="filter-chip-container">
+            <div class="filter-chip" data-filter="all">ALL</div>
+            <div class="filter-chip" data-filter="2000">2000-2005s</div>
+            <div class="filter-chip" data-filter="2006">2006-2010s</div>
+          </div>
 
+          <div id = "show-list">
+            <template id="show-template">
+              <div class="showItem" data-year= "" data-description= "" data-category="">
+                <img class="show" src="" alt="" width=236px>
+              </div>
+              </template>
+            </div>
+
+        </div>
+      </div>
     </div>
    
 
@@ -88,100 +86,138 @@
       // Add to clicked element  
       $(this).addClass("showItem-active");
   }
-
     });
 
-    $(".showItem").draggable({ revert: true });
+    $(".showItem").draggable(
+      { revert: true }
+      );
 
-
-    // Hover Interaction
+    // HOVER INTERACTION
   $('.showItem').hover(function() {
-    $(this).css({opacity: 0.65});
+    $(this).css({opacity: 0.9});
   }, function() {
     $(this).css({opacity: 1});
-
   });
 
-  // Click Interaction
+  // CLICK INTERACTION
   $('.showItem').click(function(event) {
-  // Get the data attributes from the draggable element
+  // Get the data attributes from the show item object
   var titleId = $(this).data('title');
   var yearId = $(this).data('year');
   var descriptionId = $(this).data('description');
+  var creatorId = $(this).data('creator');
 
-  // remove from all elements
+  // Remove from all elements – only one can have this class at a time
   $(".showItem").removeClass("showItem-active");
-  // add to clicked element  
+  // Add to clicked element  
   $(this).addClass("showItem-active");       
 
   // Update the sidebar and header text
   $(".sticky-sidebar")
     .addClass("ui-state")
-    .find("p")
-    .html(descriptionId);
+      .find("p")
+        .html('Creator: ' +creatorId +'<br><br>' +descriptionId);
 
-  $(".sticky-sidebar").find("h3")
-    .html(titleId);
+  $(".sticky-sidebar")
+    .find("h3")
+      .html(titleId);
 
-  $(".sticky-sidebar").find("p.description")
-    .html(yearId);
-
-    // p class="description"
-
-  // $('mainButton')
-  //   .find(p)
-  //     .css("red");
+  $(".sticky-sidebar")
+    .find("p.description")
+      .html(yearId);
 });
 
+  // Clicking the button resets and shows instructions
   $('.mainButton').click(function(event) {
-    handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
+    // handleDropOver.call("sticky-sidebar", event, ui, '.container', 'h3', 'p');
+    $(".sticky-sidebar")
+      .find("h3")
+        .html("INSTRUCTIONS");
+
+    $(".sticky-sidebar")
+      .find("p")
+        .html("CLICK OR DRAG/DROP THE SHOWS HERE TO LEARN MORE ABOUT THEM.");
+
+    $(".sticky-sidebar")
+      .find("p.description")
+        .html("HOW TO USE");
+
+    $(".showItem").removeClass("showItem-active");
 
     });
 
 
+  // DROPPABLE EVENT - IF USERS DRAG AND DROP
   $(".sticky-sidebar").droppable({
-    
     drop: function(event, ui) {
-      // gets the draggable object
+      // Gets the draggable object
       var draggableElement = ui.draggable;
-      // extract panelId, variable from object
+      // Extract all the id variables from object
       var titleId = draggableElement.data('title');
       var yearId = draggableElement.data('year');
+      var creatorId = draggableElement.data('creator');
       var descriptionId = draggableElement.data('description');
 
       $(this)
       .addClass("ui-state") 
         .find("p")
-          .html(descriptionId);
+          .html('Creator: ' +creatorId +'<br><br>' +descriptionId);
 
       $(this)
       .find("h3")
         .html(titleId);
+
+      $(this)
+        .find("p.description")
+          .html(yearId);
       },
 
+      // When item object is over the sticky sidebar
       over: function(event, ui) {
-        handleDropOver.call(this, event, ui, '.container', 'h3', 'p');
+        $(this).removeClass("ui-state")
+         .find("p")
+          .html("DRAG THE SHOW ONTO THIS WINDOW!")
+          .css({
+           color: "white"
+              });
+          
+        $(this)
+          .find("p.description")
+            .html("...");
+        
+        $(this)
+          .find("h3")
+            .html("LOADING SHOW CONTENT...");
       }
-
     });
   } );
 
+  const categoryArray = {
+    "2000": ['2000', '2001', '2002', '2003', '2004', '2005'],
+    "2006": ['2006', '2007', '2008', '2009', '2010']
+  }
 
+  document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.showItem');
+    const filterChips = document.querySelectorAll('.filter-chip');
 
-  function handleDropOver(event, ui, containerSelector, headerSelector, textSelector) {
-  // Remove highlight class and update text color and content
-  $(this).removeClass("ui-state")
-         .find(textSelector)
-         .html("DROP THE SHOW HERE!")
-         .css({
-           color: "white"
-         });
+    filterChips.forEach(function(filterChip) {
+    filterChip.addEventListener('click', function() {
+      const selectedCategory = filterChip.getAttribute('data-filter');
 
-  // Update the header text
-  $this.find(headerSelector).html("LOADING SHOW CONTENT...");
-}
+      items.forEach(function(item) {
+        const category = item.getAttribute('data-category');
+
+        if (selectedCategory === 'all' || categoryArray[selectedCategory].includes(category.substring(0, 4))) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
 
 
   </script>
-
 </html>
