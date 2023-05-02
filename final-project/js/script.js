@@ -1,6 +1,7 @@
 // Store show items in a set
 const showSet = new Set();
 
+// Constructor for every show
 class Show {
   constructor(title, year, creator, description, img) {
           this.title = title;
@@ -14,10 +15,8 @@ class Show {
       }
   }
 
-// GET REFERENCES TO THE CONTAINER ELEMENT IN HTML FILE
-const container = document.getElementById('container');
-
 // CREATE OBJECTS FROM THE ARRAY (SHOWS)
+// ADD RELEVANT SHOW DETAILS INTO THE ARRAY
   for (const showtest in shows) {
     showObj = shows[showtest]
     addShows(showObj.title, showObj.year, showObj.creator, showObj.description, showObj.img);
@@ -35,7 +34,7 @@ for (const showItem of showSet) {
   createElement(showItem);
 }
 
-// CREATE ELEMENTS (HTML) TO BE DISPLAYED
+// CREATE ELEMENTS (HTML) TO BE DISPLAYED, CLONE HTML TEMPLATE
 function createElement(showItem){
   const template = document.querySelector('#show-template');
   const clone = template.content.cloneNode(true);
@@ -59,8 +58,3 @@ function updateElement(showItem){
     showItem.element.dataset.description = showItem.description;
     showItem.element.dataset.category = showItem.year;
 }
-
-
-
-
-

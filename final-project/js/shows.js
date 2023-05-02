@@ -74,14 +74,21 @@ const shows = {
         "title": "MONSTER",
         "year": "2004-2005 (74 EPISODES)",
         "creator": "NAOKI URASAWA",
-        "description": "Monster is a psychological thriller anime series based on the manga of the same name by Naoki Urasawa. The story follows Dr. Kenzo Tenma, a skilled neurosurgeon who saves the life of a young boy, Johan Liebert, instead of the mayor of the city, who was supposed to be operated on first. Tenma later learns that Johan is a psychopath responsible for a series of murders and sets out to stop him. <br><br>The anime adaptation of Monster was produced by Madhouse and directed by Masayuki Kojima. The series has won several awards, including the prestigious Tezuka Osamu Cultural Prize, and has been critically acclaimed for its masterful storytelling and thought-provoking commentary on human nature",
+        "description": "Monster is a psychological thriller anime series based on the manga of the same name by Naoki Urasawa. The story follows Dr. Kenzo Tenma, a skilled neurosurgeon who saves the life of a young boy, Johan Liebert, instead of the mayor of the city, who was supposed to be operated on first. Tenma later learns that Johan is a psychopath responsible for a series of murders and sets out to stop him. <br><br>The anime adaptation of Monster was produced by Madhouse and directed by Masayuki Kojima.",
         "img": "monster"
+    },
+    "avatarthelastairbender": {
+        "title": "AVATAR THE LAST AIRBENDER",
+        "year": "2004-2008 (3 SEASONS)",
+        "creator": "DANTE DIMARTINO, BRYAN KONIETZKO",
+        "description": "The show is set in a fictional world where certain people have the ability to manipulate, or 'bend,' one of the four classical elements: water, earth, fire, and air. The story follows Aang, the last surviving Airbender, and his friends Katara, Sokka, and later Toph and Zuko, as they journey to defeat the tyrannical Fire Nation and bring peace to the world.<br><br> It has also inspired various adaptations, including a live-action film adaptation and a sequel series, The Legend of Korra. Despite ending its original run in 2008, Avatar: The Last Airbender remains a beloved animated series among fans of all ages.",
+        "img": "avatarthelastairbender"
     },
     "death note": {
         "title": "DEATH NOTE",
         "year": "2006 (36 EPISODES)",
         "creator": "TSUGUMI OHBA, TAKESHI OBATA",
-        "description": "The story follows a high school student named Light Yagami who discovers a supernatural notebook that can kill anyone whose name is written in it. Light decides to use the notebook to rid the world of criminals and becomes a vigilante known as 'Kira.' However, his actions attract the attention of a brilliant detective named L, who sets out to capture Kira. <br><br>The anime adaptation of Death Note was produced by Madhouse and directed by Tetsuro Araki. The series has been widely popular, with numerous adaptations, including a live-action film and TV drama, and spin-off media such as light novels, video games, and a musical.",
+        "description": "The story follows a high school student named Light Yagami who discovers a supernatural notebook that can kill anyone whose name is written in it. Light decides to use the notebook to rid the world of criminals and becomes a vigilante known as 'Kira.' However, his actions attract the attention of a brilliant detective named L, who sets out to capture Kira. <br><br>The anime adaptation of Death Note was produced by Madhouse and directed by Tetsuro Araki. The series has been widely popular, including a live-action film and TV drama, and spin-off media such as light novels, video games, and a musical.",
         "img": "deathnote"
     },
     "phineasandferb": {
@@ -95,7 +102,7 @@ const shows = {
         "title": "OURAN HIGH SCHOOL HOST CLUB",
         "year": "2007 (26 EPISODES)",
         "creator": "BISCO HATORI",
-        "description": "Ouran High School Host Club is a romantic comedy anime series based on the manga of the same name by Bisco Hatori. The story follows Haruhi Fujioka, a bright and studious student who gains admission to the prestigious Ouran High School on a scholarship. She accidentally stumbles into the school's Host Club, a group of handsome boys who entertain female clients with their charm and good looks, and ends up becoming a host to repay a debt. The anime adaptation of Ouran High School Host Club was produced by Bones and directed by Takuya Igarashi. <br><br>The series has been widely popular, with numerous adaptations, including a live-action TV drama, a video game, and a stage musical.",
+        "description": "Ouran High School Host Club is a romantic comedy anime series based on the manga of the same name by Bisco Hatori. The story follows Haruhi Fujioka, a bright and studious student who gains admission to the prestigious Ouran High School. She accidentally stumbles into the school's Host Club, a group of handsome boys who entertain female clients with their charm and good looks, and ends up becoming a host to repay a debt. The anime adaptation of Ouran High School Host Club was produced by Bones and directed by Takuya Igarashi. <br><br>The series has been widely popular, with numerous adaptations, including a live-action TV drama, a video game, and a stage musical.",
         "img": "ouran"
     },
     "chowder": {
@@ -119,12 +126,6 @@ const shows = {
         "description": " The Cartoon Network show follows the adventures of a young boy named Finn and his best friend and adoptive brother, a dog named Jake, in the post-apocalyptic Land of Ooo. Together, Finn and Jake go on various quests and battles against evil forces to protect the land and its inhabitants.<br> The series has been widely popular and has won numerous awards, including six Primetime Emmy Awards. It has also inspired various adaptations, including comic books, video games, and a feature-length animated film",
         "img": "adventuretime"
     },
-    "phineasandferb": {
-        "title": "PHINEAS AND FERB",
-        "year": "2007-2015 (4 SEASONS)",
-        "creator": "DAN POVENMIRE, JEFF 'SWAMPY' MARSH",
-        "description": "XXX",
-        "img": "phineasandferb"
-    }   
+
 
 };
