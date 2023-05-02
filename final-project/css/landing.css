@@ -17,7 +17,7 @@ html {
 body {
     background-color: rgba(0, 0, 0, 0.95); /* Set the opacity to 50% */
     background-color: black;
-    background-image: url(/assets/websiteDarkBg.jpg);
+    background-image: url("../assets/websiteDarkBg.jpg");
     opacity: 0.8;
     height: 100%;
     background-size: cover;
