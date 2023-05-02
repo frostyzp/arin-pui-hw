@@ -42,7 +42,7 @@
         <!-- Div that contains list of show -->
         <div id="show-filter-container">
           <div id="filter-chip-container">
-            <div class="filter-chip" data-filter="all">ALL</div>
+            <div class="filter-chip selected-chip" data-filter="all">ALL</div>
             <div class="filter-chip" data-filter="2000">2000-2005s</div>
             <div class="filter-chip" data-filter="2006">2006-2010s</div>
           </div>
@@ -116,7 +116,7 @@
   $(".sticky-sidebar")
     .addClass("ui-state")
       .find("p")
-        .html('Creator: ' +creatorId +'<br><br>' +descriptionId);
+        .html('CREATOR: ' +creatorId +'<br><br>' +descriptionId);
 
   $(".sticky-sidebar")
     .find("h3")
@@ -204,6 +204,8 @@
     filterChips.forEach(function(filterChip) {
     filterChip.addEventListener('click', function() {
       const selectedCategory = filterChip.getAttribute('data-filter');
+      $(".filter-chip").removeClass("selected-chip");
+      $(this).addClass("selected-chip");
 
       items.forEach(function(item) {
         const category = item.getAttribute('data-category');

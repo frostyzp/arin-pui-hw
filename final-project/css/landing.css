@@ -17,13 +17,11 @@ html {
 body {
     background-color: rgba(0, 0, 0, 0.95); /* Set the opacity to 50% */
     background-color: black;
-    background-image: url("/websiteDarkBg.jpg");
+    background-image: url(/websiteDarkBg.jpg);
     opacity: 0.8;
     height: 100%;
     background-size: cover;
     /* background-repeat: no-repeat; */
-
-    /* margin: 40px; */
     overflow: hidden;
 
     justify-content: center;
@@ -70,6 +68,7 @@ p .folderBody {
 
 .folder-link {
     cursor: pointer;
+    width: 50%;
 }
 
 .folders {
@@ -102,10 +101,6 @@ p .folderBody {
     transform: translate(-50%, -50%);
 
   }
-
-/* .divider {
-    margin-bottom: 2rem;
-} */
 
 
 
