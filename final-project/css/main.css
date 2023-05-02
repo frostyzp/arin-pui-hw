@@ -37,7 +37,7 @@ p.description {
   margin-top: -1rem;
 }
 
-h3 {
+h1 {
   font-size: 1.5rem
 }
 
@@ -146,7 +146,7 @@ hr {
 }
 
 .mainButton {
-  background-color: grey;
+  background-color: rgb(95, 95, 95);
   margin-top: 1rem;
   padding: 1rem;
   width: 100%;

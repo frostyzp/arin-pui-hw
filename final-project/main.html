@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Main – Horizontal Scroll</title>
@@ -9,24 +10,27 @@
     <link rel="stylesheet" href="jqueryUI/jquery-ui.theme.css" /> 
     <script defer src="js/shows.js"></script>
     <script defer src="js/script.js"></script>
-
-
   </head>
+
   <body>
     <!-- Nav bar -->
-    <section class="nav">
-      <a href="./index.html"> <h3> HOME </h3> </a>
-      <a href="./main.html" class="current-page"> <h3> ARCHIVE </h3> </a>
-      <a href="./about.html"> <h3> ABOUT </h3> </a>
-    </section>
-    <hr>
-
-    <!-- Side, horizontal scrolling -->
+    <nav>
+      <section class="nav">
+        <a href="./index.html"> <h1> HOME </h1> </a>
+        <a href="./main.html" class="current-page"> <h1> ARCHIVE </h1> </a>
+        <a href="./about.html"> <h1> ABOUT </h1> </a>
+      </section>
+      <hr>
+    </nav>
+   
+  
+    <main>
+      <!-- Side, horizontal scrolling -->
       <div class="container">
         <!-- Sticky side bar -->
         <div class= "sticky-sidebar">
           <div id="top-sidebar">
-            <h3> INSTRUCTIONS </h3>
+            <h1> INSTRUCTIONS </h1>
             <p class="description">HOW TO USE</p>
           </div>
 
@@ -39,14 +43,14 @@
           </div>
         </div>
 
-        <!-- Div that contains list of show -->
+        <!-- Filter Chips -->
         <div id="show-filter-container">
           <div id="filter-chip-container">
             <div class="filter-chip selected-chip" data-filter="all">ALL</div>
             <div class="filter-chip" data-filter="2000">2000-2005s</div>
             <div class="filter-chip" data-filter="2006">2006-2010s</div>
           </div>
-
+        <!-- Div that contains list of show -->
           <div id = "show-list">
             <template id="show-template">
               <div class="showItem" data-year= "" data-description= "" data-category="">
@@ -54,15 +58,14 @@
               </div>
               </template>
             </div>
-
+          </div>
         </div>
       </div>
-    </div>
+    </main>
    
-
-
   </body>
 
+  
   <!-- JQUERY CODE -->
   <script src="js/jquery.js" type="text/javascript"></script>
   <script src="jqueryUI/jquery-ui.js" type="text/javascript"></script>
@@ -119,7 +122,7 @@
         .html('CREATOR: ' +creatorId +'<br><br>' +descriptionId);
 
   $(".sticky-sidebar")
-    .find("h3")
+    .find("h1")
       .html(titleId);
 
   $(".sticky-sidebar")
@@ -129,9 +132,8 @@
 
   // Clicking the button resets and shows instructions
   $('.mainButton').click(function(event) {
-    // handleDropOver.call("sticky-sidebar", event, ui, '.container', 'h3', 'p');
     $(".sticky-sidebar")
-      .find("h3")
+      .find("h1")
         .html("INSTRUCTIONS");
 
     $(".sticky-sidebar")
@@ -164,7 +166,7 @@
           .html('Creator: ' +creatorId +'<br><br>' +descriptionId);
 
       $(this)
-      .find("h3")
+      .find("h1")
         .html(titleId);
 
       $(this)
@@ -186,7 +188,7 @@
             .html("...");
         
         $(this)
-          .find("h3")
+          .find("h1")
             .html("LOADING SHOW CONTENT...");
       }
     });
